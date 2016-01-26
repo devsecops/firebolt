@@ -1,0 +1,23 @@
+@slow
+Feature: Checks for open java RMI registry servers
+ 
+  Background:
+    Given "nmap" is installed
+      And the following environment variables:
+      | name      | environment_variable_name |
+      | host      | TARGET_HOST               |
+
+    And the following profile:
+      | name       | value                    |
+      | port       | 1099                     |
+
+  Scenario: Verify server is not open on expected ports
+    When I launch an "nmap" attack with:
+      """
+      nmap -p <port> <host>
+      """
+    Then the output should contain:
+      """
+      1099/tcp closed rmiregistry
+      """
+
