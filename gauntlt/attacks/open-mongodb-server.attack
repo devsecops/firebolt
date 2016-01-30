@@ -1,0 +1,23 @@
+@slow
+Feature: Find open mongodb servers to be attacked
+ 
+  Background:
+    Given "nmap" is installed
+    And the following environment variables:
+      | name      | environment_variable_name |
+      | host      | TARGET_HOST               |
+
+    And the following profile:
+      | name       | value                    |
+      | port       | 28017                    |
+
+  Scenario: Verify server is not open on expected ports
+    When I launch an "nmap" attack with:
+      """
+      nmap -p <port> <host>
+      """
+    Then the output should contain:
+      """
+      28017/tcp closed unknown
+      """
+
