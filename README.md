@@ -1,7 +1,9 @@
-# firebolt
+# Firebolt
 =====
 
-Firebolt is a DevSecOps project that helps enumerate and replicate different types of attacks. The project is currently focusing on Gauntlt and AttackIQ as our primary sources of attacks. However, as we recieve feedback and contributions we expect the project to develop into a more robust attack sharing platform.
+Firebolt is a DevSecOps project that helps the community collect and enumerate different types of attacks to be used in the Continuous Delivery of software features. The project is intended to provide a library and catalog of attacks to help DevOps teams test and continuously measure baseline drift.  Firebolt will provide functionality for cataloging attacks to be included within software to support automated evaluation of attack surface during the preparation and deployment of software.  Like quality checks, attacks are intended to help DevOps teams evaluate their software implementation and detect issues quickly so that they can be fixed.
+
+The DevSecOps community is currently focusing on developing the Firebolt platform by understanding the templates used in Gauntlt and AttackIQ. However, as we recieve feedback and contributions we expect the project to develop into a more robust attack sharing platform and intend for DevOps teams to add these checks to there software repositories.
 
 
 ## Prerequisites
