@@ -20,7 +20,9 @@ Feature: Will brute force <hostname> on <tcp_ping_ports> using nmap.lst
       80/tcp\s+open
       """
 
-  Scenario: Output to XML
+
+  Scenario: Run the brute forcer and export to foo.xml
+  #For some reason, gauntlt doesn't like when things last for over 30 seconds, so I had to add a time limit.
     When I launch an "nmap" attack with:
       """
       nmap --script http-brute -p 80  <hostname> -d --script-args http-brute.path=<path>,unpwdb.timelimit=20s -oX foo.xml
