@@ -36,4 +36,3 @@ Feature: Will brute force <hostname> on <tcp_ping_ports> using nmap.lst
     Then the file "foo.xml" should contain XML:
       | css                                                          |
       | ports port[protocol="tcp"][portid="80"] state[state="open"]  |
-      
