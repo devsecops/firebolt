@@ -8,7 +8,6 @@ Feature: Will brute force <hostname> on <tcp_ping_ports> using nmap.lst
       | hostname       | httpbin.org  |
       | path           | /basic-auth/user/passwd  |
       | tcp_ping_ports | 80         |
-      | nscript		   | http-brute |
 
   Scenario: Verify server is open on expected set of ports using the nmap fast flag
     When I launch an "nmap" attack with:
