@@ -1,0 +1,21 @@
+@slow
+
+Feature: Test if RHOST is vulnerable to ms08_067 exploit
+	Background:
+	Given "metasploit" is installed
+	And the following profile:
+	| name         | value         |
+	| RHOST        | 192.168.1.218 |
+
+	Scenario: Check if RHOST is vulnerable
+
+
+		When I launch a "metasploit" attack with:
+		"""
+		msfconsole -x "use exploit/windows/smb/ms08_067_netapi; set RHOST <RHOST>; check; exit"
+		"""
+
+		Then it should pass with:
+		"""
+		The target is not exploitable.
+		"""
