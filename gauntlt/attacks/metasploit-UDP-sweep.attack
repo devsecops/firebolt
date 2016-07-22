@@ -1,0 +1,22 @@
+@slow 
+
+Feature: Test a UDP sweep
+	Background:
+	Given "metasploit" is installed
+	And the following profile:
+	| name           | value        |
+	| RHOSTS         | localhost    |
+
+	Scenario: Attempt a UDP sweep with msfconsole
+		
+
+		When I launch a "metasploit" attack with:
+		"""
+		msfconsole -x "use auxiliary/scanner/discovery/udp_sweep;set RHOSTS <RHOSTS>; exploit; exit"
+
+		"""
+
+		Then it should pass with:
+		"""
+		Auxiliary module execution completed
+		"""
